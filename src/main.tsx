@@ -9,6 +9,7 @@ import ListingPage from "@/pages/ListingPage"
 import SearchResultsPage from "@/pages/SearchResultsPage"
 import ErrorPage404 from '@/pages/ErrorPage404'
 import ErrorPage500 from '@/pages/ErrorPage500'
+import AuthProvider from '@/security/AuthProvider'
 import './index.css'
 
 const dsnKey = import.meta.env.VITE_SENTRY_DSN_KEY
@@ -58,8 +59,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 )
-
-
