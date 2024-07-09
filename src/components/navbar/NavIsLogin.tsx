@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/shadcn/ui/button"
 import { LogoutIcon, ProfileIcon } from '@/components/common/Icons';
 import { logOut } from "@/api/authApi";
 

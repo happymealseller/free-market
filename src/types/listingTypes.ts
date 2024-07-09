@@ -37,3 +37,16 @@ export enum ListingCategory {
     LifestyleServices = 'lifestyleservices',
     BusinessServices = 'businessservices'
 };
+
+export interface IListingDetails {
+    id: string
+    user_id: string;
+    title: string
+    description: string
+    category: ListingCategory;
+    condition: ListingCondition;
+    price: number
+    image: string
+    created_at: string
+    updated_at: string //TODO: Remove
+}

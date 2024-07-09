@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/shadcn/ui/button";
+import { Badge } from "@/components/shadcn/ui/badge";
 import { OrderDirection } from "@/api/searchApi";
 
 const SearchSelectedFilters = ({ searchOptions }) => {

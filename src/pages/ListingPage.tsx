@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { getListingByUserId, getAllListings } from "@/api/searchApi"
+import { getListingByUserId, getAllListings, getListingByListingId } from "@/api/searchApi"
 import ListingGrid from "@/components/listing/ListingGrid"
 import ListingCard from "@/components/listing/ListingCard"
 import SpinnerLoader from "@/components/common/SpinnerLoader"
@@ -11,18 +11,30 @@ import ListingTipSection from "@/components/listing/ListingTipSection"
 import ListingTitlePrice from "@/components/listing/ListingTitlePrice"
 import ListingUserDetails from "@/components/listing/ListingUserDetails"
 
+// import { useEffect, useState } from "react"
+// import { useParams } from "react-router-dom"
+// import { getListingByUserId, getAllListings } from "@/api/searchApi"
+// import ListingGrid from "@/components/listing/ListingGrid"
+// import ListingCard from "@/components/listing/ListingCard"
+// import SpinnerLoader from "@/components/common/SpinnerLoader"
+// import ListingBreadcrumbs from "@/components/listing/ListingBreadcrumbs"
+// import ListingDetails from "@/components/listing/ListingDetails"
+// import ListingImageCarousell from "@/components/listing/ListingImageCarousell"
+// import ListingTipSection from "@/components/listing/ListingTipSection"
+// import ListingTitlePrice from "@/components/listing/ListingTitlePrice"
+// import ListingUserDetails from "@/components/listing/ListingUserDetails"
+
 const ListingPage = () => {
     const [data, setData] = useState(null)
     const [similarListings, setSimilarListings] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
 
     let { listingId } = useParams();
-    console.log(listingId)
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const { data: userData, error: userError } = await getListingByUserId(listingId);
+                const { data: userData, error: userError } = await getListingByListingId(listingId);
                 if (userError) {
                     console.error('Error fetching user data:', userError);
                     return;

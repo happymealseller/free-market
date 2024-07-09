@@ -1,4 +1,4 @@
-import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { AspectRatio } from "@/components/shadcn/ui/aspect-ratio"
 import { IListingCardProps } from "@/components/listing/ListingCard"
 
 const ListingImageCarousell = ({ data }: IListingCardProps) => {

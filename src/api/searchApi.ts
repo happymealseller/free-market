@@ -71,6 +71,15 @@ export const getListingByUserId = async (searchOptions: ISearchOptions, userId: 
     return result
 }
 
+export const getListingByListingId = async (listingId: string) => {
+
+    let result = await supabase
+        .from('listings')
+        .select('*')
+        .eq('id', listingId)
+    return result
+}
+
 export const getAllListings = async (searchOptions: ISearchOptions) => {
     const range = searchOptions?.searchRange || [0, 9];
 

@@ -2,7 +2,6 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    "./index.html",
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
@@ -18,7 +17,21 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        logo: ['Pacifico', 'cursive'],
+      },
       colors: {
+        misty: '#BED5EB',
+        royal: '#0070E0',
+        grotto: '#055CB4',
+        midnight: '#153C64',
+        th_secondary: '#FBF6EE',
+        th_accent: '#C1F2B0',
+        th_highlight: '#FFD700',
+        th_background: '#B2D2A4',
+        th_danger: '#FF6347',
+        th_success: '#65B741',
+        muted: '#7A6B77',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

@@ -1,7 +1,7 @@
 import { OrderDirection } from '@/api/searchApi';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
-import { Button } from '@/components/ui/button';
-import { RadioGroup } from '@/components/ui/radio-group';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/shadcn/ui/accordion'
+import { Button } from '@/components/shadcn/ui/button';
+import { RadioGroup } from '@/components/shadcn/ui/radio-group';
 import { ListingCondition } from '@/types/listingTypes';
 import { useState } from 'react';
 

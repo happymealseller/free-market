@@ -1,6 +1,6 @@
 
 import { IListingCardProps } from "@/components/listing/ListingCard"
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/shadcn/ui/breadcrumb"
 
 const ListingBreadcrumbs = ({ data }: IListingCardProps) => {
     return (

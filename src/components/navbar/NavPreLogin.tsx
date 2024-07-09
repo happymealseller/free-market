@@ -5,10 +5,10 @@ import {
     DialogFooter,
     DialogHeader,
     DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Button } from "@/components/ui/button"
+} from "@/components/shadcn/ui/dialog"
+import { Input } from "@/components/shadcn/ui/input"
+import { Label } from "@/components/shadcn/ui/label"
+import { Button } from "@/components/shadcn/ui/button"
 import SpinnerLoader from "@/components/common/SpinnerLoader"
 import { logInWithEmailAndPassword, resetPasswordWithEmail, signUpWithEmailAndPassword } from "@/api/authApi"
 
