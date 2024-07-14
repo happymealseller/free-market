@@ -1,9 +1,9 @@
-import supabase from "@/api/setupSupabase"
+import supabase from "@/api/setupSupabase";
 import { ListingCondition } from "@/types/listingTypes";
 
 export enum OrderDirection {
     ASCENDING = "ASC",
-    DESCENDING = "DESC"
+    DESCENDING = "DESC",
 }
 
 type SearchRange = [number, number]; // [start, end]
@@ -17,86 +17,96 @@ export interface ISearchOptions {
     searchRange?: SearchRange;
 }
 
-export const getListingByTitleAndDescription = async (searchTerm: string, searchOptions: ISearchOptions) => {
+export const getListingByTitleAndDescription = async (
+    searchTerm: string,
+    searchOptions: ISearchOptions
+) => {
+    const {
+        minPrice,
+        maxPrice,
+        orderByDate,
+        orderByPrice,
+        condition,
+        searchRange,
+    } = searchOptions;
 
-    const { minPrice, maxPrice, orderByDate, orderByPrice, condition, searchRange } = searchOptions
-
-    let queryBuilder = supabase
-        .rpc('search_listings', {
-            search_term: searchTerm
-        })
+    const queryBuilder = supabase.rpc("search_listings", {
+        search_term: searchTerm,
+    });
 
     if (condition) {
-        queryBuilder.eq("condition", condition)
+        queryBuilder.eq("condition", condition);
     }
 
     if (maxPrice) {
-        queryBuilder.lte('price', maxPrice)
+        queryBuilder.lte("price", maxPrice);
     }
 
     if (minPrice) {
-        queryBuilder.gte('price', minPrice)
+        queryBuilder.gte("price", minPrice);
     }
 
     if (orderByDate === OrderDirection.ASCENDING) {
-        queryBuilder.order('date', { ascending: true })
+        queryBuilder.order("date", { ascending: true });
     } else if (orderByDate === OrderDirection.DESCENDING) {
-        queryBuilder.order('date', { ascending: false })
+        queryBuilder.order("date", { ascending: false });
     }
 
     if (orderByPrice === OrderDirection.ASCENDING) {
-        queryBuilder.order('price', { ascending: true })
+        queryBuilder.order("price", { ascending: true });
     } else if (orderByPrice === OrderDirection.DESCENDING) {
-        queryBuilder.order('price', { ascending: false })
+        queryBuilder.order("price", { ascending: false });
     }
 
     if (searchRange) {
-        queryBuilder.range(searchRange[0], searchRange[1])
+        queryBuilder.range(searchRange[0], searchRange[1]);
     }
 
-    let result = await queryBuilder
+    const result = await queryBuilder;
     // console.log(queryBuilder)
     // console.log(result)
-    return result
-}
+    return result;
+};
 
-export const getListingByUserId = async (searchOptions: ISearchOptions, userId: string) => {
+export const getListingByUserId = async (
+    searchOptions: ISearchOptions,
+    userId: string
+) => {
     const range = searchOptions?.searchRange || [0, 9];
 
-    let result = await supabase
-        .from('listings')
-        .select('*')
-        .eq('id', userId)
-        .range(range[0], range[1])
-    return result
-}
+    const result = await supabase
+        .from("listings")
+        .select("*")
+        .eq("id", userId)
+        .range(range[0], range[1]);
+    return result;
+};
 
 export const getListingByListingId = async (listingId: string) => {
-
-    let result = await supabase
-        .from('listings')
-        .select('*')
-        .eq('id', listingId)
-    return result
-}
+    const result = await supabase
+        .from("listings")
+        .select("*")
+        .eq("id", listingId);
+    return result;
+};
 
 export const getAllListings = async (searchOptions: ISearchOptions) => {
     const range = searchOptions?.searchRange || [0, 9];
 
-    let result = await supabase
-        .from('listings')
-        .select('*')
-        .range(range[0], range[1])
-    return result
-}
+    const result = await supabase
+        .from("listings")
+        .select("*")
+        .range(range[0], range[1]);
+    return result;
+};
 
 export const getAllListingsByDate = async (searchOptions: ISearchOptions) => {
     const range = searchOptions?.searchRange || [0, 9];
 
-    let result = await supabase
-        .from('listings')
-        .select('*')
-        .order('created_at', { ascending: false })
-        .range(range[0], range[1])
-    return result
-}
+    const result = await supabase
+        .from("listings")
+        .select("*")
+        .order("created_at", { ascending: false })
+        .range(range[0], range[1]);
+    return result;
+};

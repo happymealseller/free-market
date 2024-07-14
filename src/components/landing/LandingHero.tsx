@@ -2,7 +2,7 @@ const LandingHero = () => {
     return (
         <>
             <img
-                className=" w-full object-contain sm:hidden"
+                className="w-full object-contain sm:hidden"
                 src="/hero-sm.svg"
                 alt="Small Banner"
             />
@@ -16,8 +16,8 @@ const LandingHero = () => {
                 src="/hero-lg.svg"
                 alt="Large Banner"
             />
-        </ >
-    )
-}
+        </>
+    );
+};
 
-export default LandingHero
+export default LandingHero;

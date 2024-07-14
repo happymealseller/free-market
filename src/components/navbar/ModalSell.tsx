@@ -1,4 +1,3 @@
-
 import {
     Dialog,
     DialogContent,
@@ -7,19 +6,23 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from "@/components/shadcn/ui/dialog"
+} from "@/components/shadcn/ui/dialog";
 
-import { Button } from "@/components/shadcn/ui/button"
+import { Button } from "@/components/shadcn/ui/button";
 
 const SellButton = () => {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button variant="inverse" size="sell">Sell</Button>
+                <Button variant="inverse" size="sell">
+                    Sell
+                </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                    <DialogTitle>You will be redirected to Telegram.</DialogTitle>
+                    <DialogTitle>
+                        You will be redirected to Telegram.
+                    </DialogTitle>
                     <DialogDescription>
                         For your safety, avoid paying before the meet-up.
                     </DialogDescription>
@@ -30,7 +33,7 @@ const SellButton = () => {
                 </DialogFooter>
             </DialogContent>
         </Dialog>
-    )
-}
+    );
+};
 
-export default SellButton
+export default SellButton;

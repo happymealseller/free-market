@@ -1,3 +1,6 @@
+import { Routes } from "@/types/globalTypes";
+import { Link } from "react-router-dom";
+
 const Footer = () => {
     return (
         <>
@@ -7,17 +10,22 @@ const Footer = () => {
                 alt="Instant Listings Banner"
             />
 
-            <footer className="h-[7vh] flex justify-between mx-6 items-center text-xs text-slate-500">
-                <p>Copyright © 2024 FreeMarket.</p>
-                <div className="flex gap-6">
-                    <p className="hover:underline">Privacy Policy</p>
-                    <p className="hover:underline">About Us</p>
-                    <p className="hover:underline">Contact Us</p>
-                </div>
-
+            <footer className="mx-6 flex h-[7vh] items-center justify-between text-xs text-slate-500">
+                <p>Copyright &copy; 2024 FreeMarket.</p>
+                <nav className="flex gap-6">
+                    <Link to={Routes.PRIVACY_PAGE} className="hover:underline">
+                        Privacy Policy
+                    </Link>
+                    <Link to={Routes.ABOUT_PAGE} className="hover:underline">
+                        About Us
+                    </Link>
+                    <Link to={Routes.CONTACT_PAGE} className="hover:underline">
+                        Contact Us
+                    </Link>
+                </nav>
             </footer>
         </>
-    )
-}
+    );
+};
 
-export default Footer
+export default Footer;

@@ -1,20 +1,20 @@
-import { IListingCardProps } from "@/components/listing/ListingCard"
+import { IListingCardProps } from "@/components/listing/ListingCard";
 
 const ListingTitlePrice = ({ data }: IListingCardProps) => {
     return (
         <>
-            <div className="flex-col text-2xl md:text-3xl mt-4 md:mt-0">
-                <p className="md:max-h-28 overflow-hidden">{data.title}</p>
-                <div className="flex justify-between items-center">
-                    <p className="mt-1 mb-4 text-shadow-10">{data.price}</p>
-                    <button className="hidden md:block bg-royal h-10 w-36 rounded-lg text-sm font-bold text-white">
+            <div className="mt-4 flex-col text-2xl md:mt-0 md:text-3xl">
+                <p className="overflow-hidden md:max-h-28">{data.title}</p>
+                <div className="flex items-center justify-between">
+                    <p className="text-shadow-10 mb-4 mt-1">{data.price}</p>
+                    <button className="hidden h-10 w-36 rounded-lg bg-royal text-sm font-bold text-white md:block">
                         Buy Now
                     </button>
                 </div>
             </div>
             <hr />
         </>
-    )
-}
+    );
+};
 
-export default ListingTitlePrice
+export default ListingTitlePrice;

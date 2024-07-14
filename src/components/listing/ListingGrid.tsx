@@ -8,12 +8,12 @@ export interface IListingGridProps {
 const ListingGrid = ({ title, children }: IListingGridProps) => {
     return (
         <>
-            <p className="text-2xl mb-4"> {`${title}`} </p>
-            <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+            <p className="mb-4 text-2xl"> {`${title}`} </p>
+            <div className="grid w-full grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
                 {children}
             </div>
         </>
-    )
-}
+    );
+};
 
-export default ListingGrid
+export default ListingGrid;

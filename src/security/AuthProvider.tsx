@@ -1,8 +1,8 @@
-import { useState, useEffect, createContext, ReactNode, FC } from 'react';
-import supabase from '@/api/setupSupabase';
+import { useState, useEffect, createContext, ReactNode, FC } from "react";
+import supabase from "@/api/setupSupabase";
 
 interface IUser {
-    //TODO: 
+    //TODO:
 }
 
 interface AuthContextType {
@@ -14,7 +14,7 @@ interface AuthProviderProps {
 }
 
 type UserState = IUser | undefined | null;
-type AuthContextState = AuthContextType | null
+type AuthContextState = AuthContextType | null;
 
 export const AuthContext = createContext<AuthContextState>(null);
 
@@ -22,24 +22,25 @@ export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
     const [user, setUser] = useState<UserState>(null);
 
     useEffect(() => {
-        const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
-            if (event === 'INITIAL_SESSION') {
-                // handle initial session
-            } else if (event === 'SIGNED_IN') {
-                setUser(session?.user);
-            } else if (event === 'SIGNED_OUT') {
-                setUser(null);
-            } else if (event === 'PASSWORD_RECOVERY') {
-                // const newPassword = prompt("What would you like your new password to be?");
-                // const { data, error } = await supabase.auth
-                //     .updateUser({ password: newPassword })
-
-                // if (data) alert("Password updated successfully!")
-                // if (error) alert("There was an error updating your password.")
-            } else if (event === 'TOKEN_REFRESHED') {
-                // handle token refreshed event
+        const { data: authListener } = supabase.auth.onAuthStateChange(
+            (event, session) => {
+                if (event === "INITIAL_SESSION") {
+                    // handle initial session
+                } else if (event === "SIGNED_IN") {
+                    setUser(session?.user);
+                } else if (event === "SIGNED_OUT") {
+                    setUser(null);
+                } else if (event === "PASSWORD_RECOVERY") {
+                    // const newPassword = prompt("What would you like your new password to be?");
+                    // const { data, error } = await supabase.auth
+                    //     .updateUser({ password: newPassword })
+                    // if (data) alert("Password updated successfully!")
+                    // if (error) alert("There was an error updating your password.")
+                } else if (event === "TOKEN_REFRESHED") {
+                    // handle token refreshed event
+                }
             }
-        });
+        );
 
         return () => {
             authListener?.subscription.unsubscribe();
@@ -47,9 +48,7 @@ export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
     }, []);
 
     return (
-        <AuthContext.Provider value={{ user }}>
-            {children}
-        </AuthContext.Provider>
+        <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
     );
 };
 

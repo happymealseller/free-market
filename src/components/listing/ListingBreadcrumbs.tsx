@@ -1,6 +1,12 @@
-
-import { IListingCardProps } from "@/components/listing/ListingCard"
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/shadcn/ui/breadcrumb"
+import { IListingCardProps } from "@/components/listing/ListingCard";
+import {
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbList,
+    BreadcrumbPage,
+    BreadcrumbSeparator,
+} from "@/components/shadcn/ui/breadcrumb";
 
 const ListingBreadcrumbs = ({ data }: IListingCardProps) => {
     return (
@@ -11,7 +17,9 @@ const ListingBreadcrumbs = ({ data }: IListingCardProps) => {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                    <BreadcrumbLink href="/components">data.category</BreadcrumbLink>
+                    <BreadcrumbLink href="/components">
+                        data.category
+                    </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
@@ -19,7 +27,7 @@ const ListingBreadcrumbs = ({ data }: IListingCardProps) => {
                 </BreadcrumbItem>
             </BreadcrumbList>
         </Breadcrumb>
-    )
-}
+    );
+};
 
-export default ListingBreadcrumbs
+export default ListingBreadcrumbs;
